@@ -7,14 +7,7 @@
 #define SENSOR 33
 #define LED 26
 
-
-
-
-// Copyleft 2020
- 
-#include "DHT.h"
- 
- 
+// Copyleft 2020 
 // Definit le type de capteur utilise
 #define DHTTYPE DHT11
  
@@ -28,11 +21,6 @@ void setup() {
    
   // Initialise la capteur DHT11
   dht.begin();
-}
- 
-void loop() {
-  // Recupere la temperature et l'humidite du capteur et l'affiche
-  // sur le moniteur serie
   sensors_event_t event;
 
   dht.temperature().getEvent(&event);
@@ -54,10 +42,12 @@ void loop() {
     Serial.print(event.relative_humidity);
     Serial.println(F("%"));
   }
-
-  
-  
+  // Attend 5 secondes avant de reboucler
+  ESP.deepSleep(5e6);
+}
  
-  // Attend 10 secondes avant de reboucler
-  delay(10000);
+void loop() {
+  // Recupere la temperature et l'humidite du capteur et l'affiche
+  // sur le moniteur serie
+  
 }
