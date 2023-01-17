@@ -43,6 +43,7 @@ void setup() {
     Serial.println(F("%"));
   }
   // Attend 5 secondes avant de reboucler
+  delay(100);
   ESP.deepSleep(5e6);
 }
  
